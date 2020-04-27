@@ -1,14 +1,8 @@
 // Global Tic-tak-toe Variables
-let playerx;
-let playero;
-let boardArray = [
-  ["", "", ""],
-  ["", "", ""],
-  ["", "", ""],
-];
+let boardArray;
 let winner;
-let playerxWinsCount = 04;
-let playeryWinsCount = 04;
+let playerXWinsCount = 04;
+let playerOWinsCount = 04;
 let gameBoardDiv = document.getElementById("game-board");
 
 function chooseBoardCell(selectedCell) {
@@ -17,7 +11,17 @@ function chooseBoardCell(selectedCell) {
   console.log(selectedCell.id, "selectedCell details ");
 }
 
-const player = (name, marker) => {};
+const player = {
+  setName: (name) => {
+    this.name = name;
+  },
+  setMarker: (marker) => {
+    this.marker = marker;
+  },
+};
+
+let playerX = player;
+let playero = player;
 
 const board = {
   render: () => {
@@ -29,35 +33,38 @@ const board = {
       }
     }
   },
+  reset: () => {
+    boardArray = [
+      ["", "", ""],
+      ["", "", ""],
+      ["", "", ""],
+    ];
+  },
 };
 
 const game = {
-  startGame: () => {
-    board.render();
-  },
-};
-
-// Start Game
-document.getElementById("start-game").addEventListener(
-  "click",
-  function (event) {
-    event.preventDefault();
+  start: () => {
     document.getElementById("game-players-form").className = "d-none";
     document.getElementById("game-container").className = "game-container";
 
-    // start game logic
-    game.startGame();
-  },
-  false
-);
+    playerX.name = document.getElementById("playerX").value;
+    playerO.name = document.getElementById("playerO").value;
 
-// Retart Game
-document.getElementById("finish-game").addEventListener(
-  "click",
-  function (event) {
-    event.preventDefault();
-    document.getElementById("game-players-form").className = "m-auto w-50";
-    document.getElementById("game-container").className = "d-none";
+    playerX.marker = "X";
+    playerO.marker = "Y";
+
+    // Set Players Name
+    document.getElementById("playerXName").innerHTML = playerX.name;
+    document.getElementById("playerOName").innerHTML = playerO.name;
+
+    board.reset();
+    board.render();
   },
-  falses
-);
+
+  restart: () => {
+    document.getElementById("game-container").className = "d-none";
+    document.getElementById("game-players-form").className = "m-auto w-50";
+    board.reset();
+    board.render();
+  },
+};
