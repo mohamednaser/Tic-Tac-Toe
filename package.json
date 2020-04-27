@@ -19,5 +19,9 @@
   "homepage": "https://github.com/mohamednaser/Tic-Tac-Toe#readme",
   "devDependencies": {
     "eslint": "^6.8.0"
+  },
+  "dependencies": {
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-plugin-import": "^2.20.2"
   }
 }
