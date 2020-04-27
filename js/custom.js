@@ -83,6 +83,7 @@ const game = {
       console.log(selectedCell.id, "selectedCell details ", boardArray);
     }
   },
+  
 
   setWinner: (winner) => {
     if (winner === "X") {
