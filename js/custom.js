@@ -1,13 +1,12 @@
 // Global Tic-tak-toe Variables
 let boardArray;
-let winner;
 let boardArrayDiv = document.getElementById("game-board");
 let currentPlayer = "X";
 
 const player = {};
 
 let playerX = player;
-let playero = player;
+let playerO = player;
 
 const board = {
   initialize: () => {
@@ -29,6 +28,7 @@ const board = {
   },
 
   reset: () => {
+    console.log("players data ", playerX, playerO);
     boardArrayDiv.innerHTML = "";
     board.initialize();
     board.render();
@@ -45,6 +45,9 @@ const game = {
 
     playerX.marker = "X";
     playerO.marker = "Y";
+
+    playerX.winscount = 0;
+    playerO.winscount = 0;
 
     // Set Players Name
     document.getElementById("playerXName").innerHTML = playerX.name;
@@ -65,10 +68,20 @@ const game = {
     if (game.checkWin()) {
       // show winner and finish this round
       alert(currentPlayer + "win");
+      game.setWinner(currentPlayer);
     } else {
       game.switchPlayer();
       console.log(selectedCell.id, "selectedCell details ", boardArray);
     }
+  },
+
+  setWinner: (winner) => {
+    if (winner === "X") {
+      playerX.winscount += 1;
+    } else {
+      playerO.winscount += 1;
+    }
+    board.reset();
   },
 
   checkWin: () => {
