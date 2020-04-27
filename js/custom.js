@@ -3,7 +3,12 @@ let boardArray;
 let boardArrayDiv = document.getElementById("game-board");
 let currentPlayer = "X";
 
-const player = {};
+const player = {
+  getName: (marker) => {
+    if (marker == "X") return document.getElementById("playerX").value;
+    else return document.getElementById("playerO").value;
+  },
+};
 
 let playerX = player;
 let playerO = player;
@@ -50,8 +55,12 @@ const game = {
     playerO.winscount = 0;
 
     // Set Players Name
-    document.getElementById("playerXName").innerHTML = playerX.name;
-    document.getElementById("playerOName").innerHTML = playerO.name;
+    document.getElementById("playerXName").innerHTML = document.getElementById(
+      "playerX"
+    ).value;
+    document.getElementById("playerOName").innerHTML = document.getElementById(
+      "playerO"
+    ).value;
 
     board.reset();
   },
@@ -67,7 +76,7 @@ const game = {
     ] = currentPlayer;
     if (game.checkWin()) {
       // show winner and finish this round
-      alert(currentPlayer + "win");
+      alert(player.getName(currentPlayer) + " win !");
       game.setWinner(currentPlayer);
     } else {
       game.switchPlayer();
