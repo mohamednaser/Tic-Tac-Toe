@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.4.1/cosmo/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./css/custom.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <title>Tic Tac Toe</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="text-center font-weight-bold">Tic-Tac-Toe</h1>
+      <!-- Players Names  -->
+      <form class="m-auto w-50 d-none" id="game-form">
+        <div class="form-group">
+          <label for="exampleInputEmail1">First Player Name : </label>
+          <input
+            type="text"
+            class="form-control"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+          />
+          <small id="emailHelp" class="form-text text-muted"
+            >We'll never share your email with anyone else.</small
+          >
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Second Player Name : </label>
+          <input type="text" class="form-control" id="exampleInputPassword1" />
+        </div>
+        <div class="col text-center">
+          <button type="submit" class="btn btn-primary text-center">
+            Start Game
+          </button>
+        </div>
+      </form>
+      <div class="board-container">
+        <!-- Game Setting  -->
+        <div class="game-settings" style="display: block;">
+          <table class="table">
+            <tbody>
+              <tr class="main-tr">
+                <th>Name</th>
+                <th>Won</th>
+                <th>Lost</th>
+              </tr>
+              <tr>
+                <td id="playerX">dw</td>
+                <td id="xWins">0</td>
+                <td id="xLost">0</td>
+              </tr>
+              <tr>
+                <td id="playerO">dw</td>
+                <td id="oWins">0</td>
+                <td id="oLost">0</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <button class="btn btn-danger" id="finishGame">Finish Game</button>
+          <button class="btn btn-primary" id="resetGame">Play Again</button>
+        </div>
+        <!-- Game Board  -->
+
+        <div class="board d-flex flex-row bd-highlight mb-3">
+          <div class="board-cell cursor-pointer" id="0|0"> flext 1 </div>
+          <div class="board-cell cursor-pointer" id="0|1"> flext 2  </div>
+          <div class="board-cell cursor-pointer" id="0|2"> flex 3 </div>
+          <div class="board-cell cursor-not-allowed" id="1|0">flex 4 </div>
+          <div class="board-cell cursor-not-allowed" id="1|1"> flex 5  </div>
+          <div class="board-cell cursor-pointer" id="1|2"> flex 6 </div>
+          <div class="board-cell cursor-pointer" id="2|0"></div>
+          <div class="board-cell cursor-pointer" id="2|1"></div>
+          <div class="board-cell cursor-pointer" id="2|2"></div>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="./js/custom.js"></script>
+  </body>
+</html>
