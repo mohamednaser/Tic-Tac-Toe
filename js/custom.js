@@ -8,3 +8,8 @@ document.getElementById("game-form").addEventListener(
 );
 
 function startGame() {}
+
+function chooseBoardCell(selectedCell) {
+  selectedCell.innerHTML = "X";
+  console.log(selectedCell.id, "selectedCell details ");
+}

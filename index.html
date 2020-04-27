@@ -65,22 +65,59 @@
               </tr>
             </tbody>
           </table>
-
-          <button class="btn btn-danger" id="finishGame">Finish Game</button>
-          <button class="btn btn-primary" id="resetGame">Play Again</button>
+          <div class="game-buttons">
+            <button class="btn btn-danger" id="finishGame">Finish Game</button>
+            <button class="btn btn-primary" id="resetGame">Play Again</button>
+          </div>
         </div>
         <!-- Game Board  -->
 
-        <div class="board d-flex flex-row bd-highlight mb-3">
-          <div class="board-cell cursor-pointer" id="0|0"> flext 1 </div>
-          <div class="board-cell cursor-pointer" id="0|1"> flext 2  </div>
-          <div class="board-cell cursor-pointer" id="0|2"> flex 3 </div>
-          <div class="board-cell cursor-not-allowed" id="1|0">flex 4 </div>
-          <div class="board-cell cursor-not-allowed" id="1|1"> flex 5  </div>
-          <div class="board-cell cursor-pointer" id="1|2"> flex 6 </div>
-          <div class="board-cell cursor-pointer" id="2|0"></div>
-          <div class="board-cell cursor-pointer" id="2|1"></div>
-          <div class="board-cell cursor-pointer" id="2|2"></div>
+        <div class="board d-flex flex-row bd-highlight">
+          <div
+            class="board-cell cursor-pointer"
+            id="0|0"
+            onclick="chooseBoardCell(this)"
+          ></div>
+          <div
+            class="board-cell cursor-pointer"
+            id="0|1"
+            onclick="chooseBoardCell(this)"
+          ></div>
+          <div
+            class="board-cell cursor-pointer"
+            id="0|2"
+            onclick="chooseBoardCell(this)"
+          ></div>
+          <div
+            class="board-cell cursor-not-allowed"
+            id="1|0"
+            onclick="chooseBoardCell(this)"
+          ></div>
+          <div
+            class="board-cell cursor-not-allowed"
+            id="1|1"
+            onclick="chooseBoardCell(this)"
+          ></div>
+          <div
+            class="board-cell cursor-pointer"
+            id="1|2"
+            onclick="chooseBoardCell(this)"
+          ></div>
+          <div
+            class="board-cell cursor-pointer"
+            id="2|0"
+            onclick="chooseBoardCell(this)"
+          ></div>
+          <div
+            class="board-cell cursor-pointer"
+            id="2|1"
+            onclick="chooseBoardCell(this)"
+          ></div>
+          <div
+            class="board-cell cursor-pointer"
+            id="2|2"
+            onclick="chooseBoardCell(this)"
+          ></div>
         </div>
       </div>
     </div>
