@@ -20,7 +20,7 @@
     <div class="container">
       <h1 class="text-center font-weight-bold">Tic-Tac-Toe</h1>
       <!-- Players Names  -->
-      <form class="m-auto w-50 d-none" id="game-form">
+      <form class="m-auto w-50" id="game-players-form">
         <div class="form-group">
           <label for="exampleInputEmail1">First Player Name : </label>
           <input
@@ -38,86 +38,101 @@
           <input type="text" class="form-control" id="exampleInputPassword1" />
         </div>
         <div class="col text-center">
-          <button type="submit" class="btn btn-primary text-center">
+          <button
+            type="submit"
+            class="btn btn-primary text-center"
+            id="start-game"
+          >
             Start Game
           </button>
         </div>
       </form>
-      <div class="board-container">
-        <!-- Game Setting  -->
-        <div class="game-settings" style="display: block;">
-          <table class="table">
-            <tbody>
-              <tr class="main-tr">
-                <th>Name</th>
-                <th>Won</th>
-                <th>Lost</th>
-              </tr>
-              <tr>
-                <td id="playerX">dw</td>
-                <td id="xWins">0</td>
-                <td id="xLost">0</td>
-              </tr>
-              <tr>
-                <td id="playerO">dw</td>
-                <td id="oWins">0</td>
-                <td id="oLost">0</td>
-              </tr>
-            </tbody>
-          </table>
-          <div class="game-buttons">
-            <button class="btn btn-danger" id="finishGame">Finish Game</button>
-            <button class="btn btn-primary" id="resetGame">Play Again</button>
-          </div>
-        </div>
-        <!-- Game Board  -->
 
-        <div class="board d-flex flex-row bd-highlight">
-          <div
-            class="board-cell cursor-pointer"
-            id="0|0"
-            onclick="chooseBoardCell(this)"
-          ></div>
-          <div
-            class="board-cell cursor-pointer"
-            id="0|1"
-            onclick="chooseBoardCell(this)"
-          ></div>
-          <div
-            class="board-cell cursor-pointer"
-            id="0|2"
-            onclick="chooseBoardCell(this)"
-          ></div>
-          <div
-            class="board-cell cursor-not-allowed"
-            id="1|0"
-            onclick="chooseBoardCell(this)"
-          ></div>
-          <div
-            class="board-cell cursor-not-allowed"
-            id="1|1"
-            onclick="chooseBoardCell(this)"
-          ></div>
-          <div
-            class="board-cell cursor-pointer"
-            id="1|2"
-            onclick="chooseBoardCell(this)"
-          ></div>
-          <div
-            class="board-cell cursor-pointer"
-            id="2|0"
-            onclick="chooseBoardCell(this)"
-          ></div>
-          <div
-            class="board-cell cursor-pointer"
-            id="2|1"
-            onclick="chooseBoardCell(this)"
-          ></div>
-          <div
-            class="board-cell cursor-pointer"
-            id="2|2"
-            onclick="chooseBoardCell(this)"
-          ></div>
+      <div class="game-container d-none" id="game-container">
+        <div id="game-result">
+          Player one Win
+        </div>
+
+        <div class="board-container" id="board-container">
+          <!-- Game Setting  -->
+          <div class="game-settings" style="display: block;">
+            <table class="table">
+              <tbody>
+                <tr class="main-tr">
+                  <th>Name</th>
+                  <th>Won</th>
+                  <th>Lost</th>
+                </tr>
+                <tr>
+                  <td id="playerX">dw</td>
+                  <td id="xWins">0</td>
+                  <td id="xLost">0</td>
+                </tr>
+                <tr>
+                  <td id="playerO">dw</td>
+                  <td id="oWins">0</td>
+                  <td id="oLost">0</td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="game-buttons">
+              <button class="btn btn-danger" id="finish-game">
+                Finish Game
+              </button>
+              <button class="btn btn-primary" id="play-again-game">
+                Play Again
+              </button>
+            </div>
+          </div>
+
+          <!-- Game Board  -->
+          <div class="board d-flex flex-row bd-highlight">
+            <div
+              class="board-cell cursor-pointer"
+              id="0|0"
+              onclick="chooseBoardCell(this)"
+            ></div>
+            <div
+              class="board-cell cursor-pointer"
+              id="0|1"
+              onclick="chooseBoardCell(this)"
+            ></div>
+            <div
+              class="board-cell cursor-pointer"
+              id="0|2"
+              onclick="chooseBoardCell(this)"
+            ></div>
+            <div
+              class="board-cell cursor-not-allowed"
+              id="1|0"
+              onclick="chooseBoardCell(this)"
+            ></div>
+            <div
+              class="board-cell cursor-not-allowed"
+              id="1|1"
+              onclick="chooseBoardCell(this)"
+            ></div>
+            <div
+              class="board-cell cursor-pointer"
+              id="1|2"
+              onclick="chooseBoardCell(this)"
+            ></div>
+            <div
+              class="board-cell cursor-pointer"
+              id="2|0"
+              onclick="chooseBoardCell(this)"
+            ></div>
+            <div
+              class="board-cell cursor-pointer"
+              id="2|1"
+              onclick="chooseBoardCell(this)"
+            ></div>
+            <div
+              class="board-cell cursor-pointer"
+              id="2|2"
+              onclick="chooseBoardCell(this)"
+            ></div>
+          </div>
         </div>
       </div>
     </div>
