@@ -20,6 +20,8 @@
       <h1 class="text-center font-weight-bold">Tic-Tac-Toe</h1>
       <!-- Players Names  -->
       <form class="m-auto w-50" id="game-players-form">
+        <div class="alert alert-danger" role="alert" id="player-form-errors">
+        </div>
         <div class="form-group">
           <label for="playerXLabel">First Player Name : </label>
           <input type="text" required class="form-control" id="playerX" />
@@ -41,6 +43,8 @@
       </form>
 
       <div class="game-container d-none" id="game-container">
+        <div class="sucess-message" id= "sucess-message">
+        </div>
         <div class="board-container" id="board-container">
           <!-- Game Setting  -->
           <div class="game-settings" style="display: block;">
@@ -48,12 +52,15 @@
               <tbody>
                 <tr class="main-tr">
                   <th>Name</th>
+                  <th>Won</th>
                 </tr>
                 <tr>
                   <td id="playerXName">first name</td>
+                  <td id="playerXWinsCount"> 0 </td>
                 </tr>
                 <tr>
                   <td id="playerOName">second name</td>
+                  <td id="playerYWinsCount"> 0 </td>
                 </tr>
               </tbody>
             </table>

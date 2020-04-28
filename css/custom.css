@@ -41,3 +41,9 @@
   height: 70%;
   cursor: pointer;
 }
+
+.sucess-message {
+  text-align: center;
+  font-size: x-large;
+  background-color: lawngreen;
+}

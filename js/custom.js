@@ -1,17 +1,19 @@
-// Global Tic-tak-toe Variables
 let boardArray;
 const boardArrayDiv = document.getElementById('game-board');
+const winnerDiv = document.getElementById('sucess-message');
+const errorsDiv = document.getElementById('player-form-errors');
+
 let currentPlayer = 'X';
+let moveCount = 0;
 
-const player = {
-  getName: (marker) => {
-    if (marker === 'X') return document.getElementById('playerX').value;
-    return document.getElementById('playerO').value;
-  },
-};
+const player = (name, mark, winscount) => ({
+  name,
+  mark,
+  winscount,
+});
 
-const playerX = player;
-const playerO = player;
+const playerX = player('', 'X', 0);
+const playerO = player('', 'O', 0);
 
 const board = {
   initialize: () => {
@@ -34,6 +36,8 @@ const board = {
 
   reset: () => {
     boardArrayDiv.innerHTML = '';
+    winnerDiv.innerHTML = '';
+
     board.initialize();
     board.render();
   },
@@ -41,27 +45,27 @@ const board = {
 
 const game = {
   start: () => {
-    document.getElementById('game-players-form').className = 'd-none';
-    document.getElementById('game-container').className = 'game-container';
-
+    errorsDiv.innerHTML = '';
     playerX.name = document.getElementById('playerX').value;
     playerO.name = document.getElementById('playerO').value;
 
-    playerX.marker = 'X';
-    playerO.marker = 'Y';
-
-    playerX.winscount = 0;
-    playerO.winscount = 0;
+    if (!playerX.name) {
+      errorsDiv.innerHTML = 'enter a valid name for first player';
+      return false;
+    }
+    if (!playerO.name) {
+      errorsDiv.innerHTML = 'enter a valid name for second player';
+      return false;
+    }
+    document.getElementById('game-players-form').className = 'd-none';
+    document.getElementById('game-container').className = 'game-container';
 
     // Set Players Name
-    document.getElementById('playerXName').innerHTML = document.getElementById(
-      'playerX',
-    ).value;
-    document.getElementById('playerOName').innerHTML = document.getElementById(
-      'playerO',
-    ).value;
+    document.getElementById('playerXName').innerHTML = playerX.name;
+    document.getElementById('playerOName').innerHTML = playerO.name;
 
     board.reset();
+    return true;
   },
 
   move: (selectedCell) => {
@@ -72,22 +76,31 @@ const game = {
     boardArray[selectedRowColumeArray[0]][
       selectedRowColumeArray[1]
     ] = currentPlayer;
+    moveCount += 1;
     if (game.checkWin()) {
-      // show winner and finish this round
-      alert(`${player.getName(currentPlayer)} win !`);
+      if (currentPlayer === 'X') {
+        winnerDiv.innerHTML = `${playerX.name} win ! `;
+      } else {
+        winnerDiv.innerHTML = `${playerO.name} win ! `;
+      }
       game.setWinner(currentPlayer);
     } else {
+      if (moveCount === 9) {
+        winnerDiv.innerHTML = ' Draw Game ';
+      }
       game.switchPlayer();
     }
   },
 
   setWinner: (winner) => {
+    moveCount = 0;
     if (winner === 'X') {
       playerX.winscount += 1;
+      document.getElementById('playerXWinsCount').innerHTML = playerX.winscount;
     } else {
       playerO.winscount += 1;
+      document.getElementById('playerYWinsCount').innerHTML = playerO.winscount;
     }
-    board.reset();
   },
 
   checkWin: () => {
