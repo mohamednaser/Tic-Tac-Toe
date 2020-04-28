@@ -51,16 +51,17 @@ const game = {
 
     if (!playerX.name) {
       errorsDiv.innerHTML = 'enter a valid name for first player';
+      errorsDiv.className = 'alert alert-danger';
       return false;
     }
     if (!playerO.name) {
       errorsDiv.innerHTML = 'enter a valid name for second player';
+      errorsDiv.className = 'alert alert-danger';
       return false;
     }
     document.getElementById('game-players-form').className = 'd-none';
     document.getElementById('game-container').className = 'game-container';
 
-    // Set Players Name
     document.getElementById('playerXName').innerHTML = playerX.name;
     document.getElementById('playerOName').innerHTML = playerO.name;
 
@@ -124,6 +125,7 @@ const game = {
   restart: () => {
     document.getElementById('game-container').className = 'd-none';
     document.getElementById('game-players-form').className = 'm-auto w-50';
+    errorsDiv.className = 'alert';
     board.reset();
   },
 
@@ -135,3 +137,14 @@ const game = {
     currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
   },
 };
+
+
+document.querySelector('#start-game').addEventListener('click', () => {
+  game.start();
+});
+document.querySelector('#finish-game').addEventListener('click', () => {
+  game.restart();
+});
+document.querySelector('#play-again-game').addEventListener('click', () => {
+  board.reset();
+});
