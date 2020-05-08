@@ -28,7 +28,6 @@ const board = {
     for (let x = 0; x <= 2; x += 1) {
       for (let y = 0; y <= 2; y += 1) {
         const htmlCeil = `<div class='board-cell cursor-pointer' onclick="game.move(this)" id="${x},${y}"> ${boardArray[x][y]}</div>`;
-
         boardArrayDiv.innerHTML += htmlCeil;
       }
     }
@@ -68,7 +67,6 @@ const game = {
     board.reset();
     return true;
   },
-
   move: (selectedCell) => {
     selectedCell.innerHTML = currentPlayer;
     selectedCell.style.cursor = 'not-allowed';
@@ -136,15 +134,7 @@ const game = {
   switchPlayer: () => {
     currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
   },
+
 };
 
-
-document.querySelector('#start-game').addEventListener('click', () => {
-  game.start();
-});
-document.querySelector('#finish-game').addEventListener('click', () => {
-  game.restart();
-});
-document.querySelector('#play-again-game').addEventListener('click', () => {
-  board.reset();
-});
+module.exports = player;

@@ -20,8 +20,7 @@
       <h1 class="text-center font-weight-bold">Tic-Tac-Toe</h1>
       <!-- Players Names  -->
       <form class="m-auto w-50" id="game-players-form">
-        <div class="alert" role="alert" id="player-form-errors">
-        </div>
+        <div class="alert" role="alert" id="player-form-errors"></div>
         <div class="form-group">
           <label for="playerXLabel">First Player Name : </label>
           <input type="text" required class="form-control" id="playerX" />
@@ -42,8 +41,7 @@
       </form>
 
       <div class="game-container d-none" id="game-container">
-        <div class="sucess-message" id= "sucess-message">
-        </div>
+        <div class="sucess-message" id="sucess-message"></div>
         <div class="board-container" id="board-container">
           <!-- Game Setting  -->
           <div class="game-settings" style="display: block;">
@@ -55,25 +53,19 @@
                 </tr>
                 <tr>
                   <td id="playerXName">first name</td>
-                  <td id="playerXWinsCount"> 0 </td>
+                  <td id="playerXWinsCount">0</td>
                 </tr>
                 <tr>
                   <td id="playerOName">second name</td>
-                  <td id="playerYWinsCount"> 0 </td>
+                  <td id="playerYWinsCount">0</td>
                 </tr>
               </tbody>
             </table>
             <div class="game-buttons">
-              <button
-                class="btn btn-danger"
-                id="finish-game"
-              >
+              <button class="btn btn-danger" id="finish-game">
                 Finish Game
               </button>
-              <button
-                class="btn btn-primary"
-                id="play-again-game"
-              >
+              <button class="btn btn-primary" id="play-again-game">
                 Play Again
               </button>
             </div>
@@ -88,5 +80,18 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <script src="./js/custom.js"></script>
+    <script>
+      document.querySelector("#start-game").addEventListener("click", () => {
+        game.start();
+      });
+      document.querySelector("#finish-game").addEventListener("click", () => {
+        game.restart();
+      });
+      document
+        .querySelector("#play-again-game")
+        .addEventListener("click", () => {
+          board.reset();
+        });
+    </script>
   </body>
 </html>
