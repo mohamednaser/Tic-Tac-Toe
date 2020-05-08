@@ -137,4 +137,7 @@ const game = {
 
 };
 
-module.exports = player;
+module.exports = {
+  player : player,
+  board : board
+}

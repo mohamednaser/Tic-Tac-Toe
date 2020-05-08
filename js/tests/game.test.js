@@ -1,7 +1,7 @@
-const player = require('../custom');
+const mod = require('../custom');
 
-const firstPlayer = player('mohamed', 'X', 0);
-const secondPlayer = player('Salvador', 'Y', 0);
+const firstPlayer = mod.player('mohamed', 'X', 0);
+const secondPlayer = mod.player('Salvador', 'Y', 0);
 
 test('validate correct players name ', () => {
   expect(firstPlayer.name).toBe('mohamed');
